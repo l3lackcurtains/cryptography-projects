@@ -1,0 +1,29 @@
+<nav class="navbar navbar-dark">
+  <div class="container">
+  <a class="navbar-brand" routerLink="/">
+    Solo Coin
+  </a>
+
+  <div>
+    <button routerLink="/new/transaction/pending" class="btn btn-outline-light" *ngIf="thereArePendingTransactions()">
+      Pending transactions
+      <span class="badge badge-light">{{blockchain.pendingTransactions.length}}</span>
+    </button>
+    <button routerLink="/settings" class="btn btn-outline-light">
+      Settings
+    </button>
+    &nbsp;
+    <button routerLink="/new/transaction" class="btn btn-outline-light">
+      Create transaction
+    </button>
+  </div>
+  </div>
+</nav>
+
+<br>
+
+<router-outlet></router-outlet>
+<footer class="text-muted text-center" style="margin-top: 150px;">
+  <small>For educational purposes only.<br>
+</small>
+</footer>

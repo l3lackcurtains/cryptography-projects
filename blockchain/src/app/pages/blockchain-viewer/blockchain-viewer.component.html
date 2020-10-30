@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="blockchain-viewer">
+    <h2>Block Chains</h2>
+    <p>
+      Each card represents a block on the chain. Click on a block to see the
+      transactions stored inside.
+    </p>
+  </div>
+
+  <div class="container" style="overflow-x: scroll; white-space: nowrap">
+    <app-block-view
+      *ngFor="let block of blocks"
+      [block]="block"
+      [selectedBlock]="selectedBlock"
+      (click)="showTransactions(block)"
+    ></app-block-view>
+  </div>
+
+  <br /><br />
+
+  <div class="container">
+    <h2>Transactions inside block {{ getBlockNumber(selectedBlock) }}</h2>
+
+    <app-transactions-table
+      [transactions]="selectedBlock.transactions"
+    ></app-transactions-table>
+  </div>
+</div>
